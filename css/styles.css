@@ -1,0 +1,70 @@
+/* Header */
+.header-style{
+    margin: 40px;
+}
+
+/* Contenedor principal del carrusel */
+.carousel-wrapper {
+    max-width: 1000px;
+    margin: 100px;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+  
+  /* Contenedor de imágenes */
+  .carrusel-contenido {
+    gap: 20px; /* Espacio entre imágenes */
+    padding: 0 20px; /* Espacio lateral para que no pegue con los bordes */
+  }
+  
+  /* Estilo para cada imagen */
+  .carrusel-img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+  }
+  
+  /* Efecto de zoom al pasar el mouse */
+  .carrusel-img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsivo */
+  @media (max-width: 992px) {
+    .carrusel-img {
+      width: 250px;
+      height: 170px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .carrusel-img {
+      width: 200px;
+      height: 140px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .carrusel-img {
+      width: 150px;
+      height: 120px;
+    }
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(1); /* blanco -> negro */
+  }
+
+  .social-icon{
+    margin: 0 4px;
+    width: 32px;
+    float: right;
+  }
+  
+  .dropdown-menu{
+    float: right;
+  }
