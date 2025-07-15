@@ -1,147 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Fondo de Manchas de Vaca</title>
-  <canvas id="manchas"></canvas>
+  <meta charset="UTF-8" />
+  <title>Texto 3D Metálico</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
 
-<script>
-const canvas = document.getElementById('manchas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+<script src="https://unpkg.com/three@0.124.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.124.0/examples/js/loaders/FontLoader.js"></script>
+<script src="https://unpkg.com/three@0.124.0/examples/js/geometries/TextGeometry.js"></script>
 
-function r(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-// Generador aleatorio
-function generarFormaMancha(scale) {
-  const path = new Path2D();
-  path.moveTo(0, 0);
-    path.bezierCurveTo(20*scale, -50*scale, 50*scale, 10*scale, 40*scale, 60*scale);
-    path.bezierCurveTo(40*scale, 70*scale, 0, 90*scale, -10*scale, 50*scale);
-    path.bezierCurveTo(-20*scale, 20*scale, -10*scale, 0, 0, 0);
-  return path;
-}
+<canvas id="manchas"></canvas>
 
 
-// Crear manchas con propiedades únicas
-let manchas = [];
-
-for (let i = 0; i < 25; i++) {
-  const baseScale = r(0.8, 2);
-  const radio = baseScale * 30; // radio de la mancha
-  manchas.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    baseScale: baseScale,
-    scaleOffset: Math.random() * Math.PI * 2,
-    velX: (Math.random() - 0.5) * 0.2,  // más lento
-    velY: (Math.random() - 0.5) * 0.2,
-    angle: Math.random() * Math.PI * 2,
-    velAngle: (Math.random() - 0.5) * 0.02,
-    forma: generarFormaMancha(1),  // escala base = 1
-    radio
-  });
-}
-
-
-// Dibuja una mancha individual
-function dibujarMancha(m, escalaAnimada) {
-  ctx.save();
-  ctx.translate(m.x, m.y);
-  ctx.rotate(m.angle);
-  ctx.scale(escalaAnimada, escalaAnimada);
-  ctx.fillStyle = 'black';
-  ctx.fill(m.forma);
-  ctx.restore();
-}
-
-
-let tiempo = 0;
-
-function animar() {
-  tiempo += 0.03; // Más lento que 0.02
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  for (let i = 0; i < manchas.length; i++) {
-  let m = manchas[i];
-
-  // Movimiento traslacional
-  m.x += m.velX;
-  m.y += m.velY;
-
-  // Actualizar ángulo con velocidad angular
-  m.angle += m.velAngle;
-
-  // Rebotes con bordes
-  if (m.x < m.radio || m.x > canvas.width - m.radio) m.velX *= -1;
-  if (m.y < m.radio || m.y > canvas.height - m.radio) m.velY *= -1;
-
-  // Aquí la colisión entre manchas si tienes implementada...
-
-  // Latido en escala
-  const escala = m.baseScale + Math.sin(tiempo + m.scaleOffset) * 0.2;
-
-  // Dibujar con el ángulo actualizado
-  dibujarMancha(m, escala);
-}
-
-
-
-  requestAnimationFrame(animar);
-}
-
-
-animar();
-
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-</script>
-
-
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    background-color: #fff; /* Fondo blanco */
-  }
-  canvas {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-</style>
-
-<headera>
+    <headera>
         <nav>
             <a style="padding: 15px;" href="#sobre-mi"><b>Sobre mí</b></a> 
             <a style="padding: 15px;" href="#proyectos"><b>Proyectos</b></a> 
             <a style="padding: 15px;" href="#contacto"><b>Contacto</b></a>
         </nav>
-        <h1>Yocxany Chaves</h1>
     </headera>
 
-    <!-- Información de contacto -->
-    <div class="card" style="width: 18rem;">
-    <img src="/img/DVEH7640.JPG" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-    </div>
-<!-- Información de contacto -->
+    <div id="container">
+      <div id="sidebar">
 
-    <section id="sobre-mi">
+        <section id="sobre-mi">
         <h2>Sobre mí</h2>
-        <p>Soy estudiante y desarrolladora web en Costa Rica.</p>
-        <p>Me apasiona aprender nuevas tecnologías y mejorar mis habilidades.</p>
+        <p>
+            Mi nombre es Yocxany Chaves Gonzalez y actualmente curso el último año de la carrera de Informática Empresarial 
+            en la Universidad de Costa Rica. A lo largo de mi formación universitaria he adquirido una base sólida en tecnologías de la 
+            información, así como una comprensión integral de los procesos empresariales.
+
+            Poseo conocimientos y experiencia en diversos lenguajes y herramientas, entre ellos: C#, C++, .NET, HTML, CSS, JavaScript, 
+            así como bases de datos y redes. Me considero una persona con gran capacidad de aprendizaje autónomo, proactiva, con habilidades 
+            para el trabajo en equipo y con una fuerte orientación hacia la mejora continua.
+
+            Mi objetivo profesional es seguir desarrollándome en el ámbito tecnológico, contribuyendo activamente en proyectos que representen 
+            desafíos y oportunidades de crecimiento, tanto a nivel técnico como personal.
+
+
+        </p>
     </section>
 
     <section id="proyectos">
@@ -152,6 +54,11 @@ window.addEventListener('resize', () => {
         </ul>
     </section>
 
+      </div>
+    </div>    
+    
+    <script src="/js/manchas.js"></script>
+    <script src="/js/letras.js"></script>
+
 </body>
 </html>
-<!-- Este código crea un fondo animado con gotas de agua que caen. -->
