@@ -29,7 +29,7 @@ function init() {
       font: font,
       size: 18,
       height: 5,
-      curveSegments: 16,
+      curveSegments: 15,
       bevelEnabled: true,
       bevelThickness: 0.7,
       bevelSize: 0.4,
@@ -38,10 +38,10 @@ function init() {
     geometry.center();
 
     const material = new THREE.MeshStandardMaterial({
-      color: 0xFFC300,
+      color: 0xfa4fee,
       metalness: 1.0,
-      roughness: 0.2,
-      emissive: 0xb4a329,
+      roughness: 0.4,
+      emissive: 0xd1d1d1,
       emissiveIntensity: 0.3
     });
 
