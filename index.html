@@ -1,64 +1,240 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Texto 3D Metálico</title>
-  <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP Digital Innovations - Your Partner in Growth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-<script src="https://unpkg.com/three@0.124.0/build/three.min.js"></script>
-<script src="https://unpkg.com/three@0.124.0/examples/js/loaders/FontLoader.js"></script>
-<script src="https://unpkg.com/three@0.124.0/examples/js/geometries/TextGeometry.js"></script>
+    <script type="module" src="/js/menu.js"></script>
+    <div class="light-ray-right"></div>
 
-<canvas id="manchas"></canvas>
-
-
-    <header>
-        <nav>
-            <a style="padding: 15px;" href="#sobre-mi"><b>Sobre mí</b></a> 
-            <a style="padding: 15px;" href="#proyectos"><b>Proyectos</b></a> 
-            <a style="padding: 15px;" href="#contacto"><b>Contacto</b></a>
-        </nav>
+    <!-- HEADER -->
+    <header id="main-header" class="main-header">
+        <div class="container mx-auto flex items-center justify-between px-4 h-28">
+            <a href="#" class="flex items-center space-x-2 logo-container-3d">
+                <span class="font-black text-4xl md:text-3xl text-[#0A2463] logo-text-spin">R</span>
+                <span class="font-black text-4xl md:text-3xl text-[#0A2463] logo-text-spin">P</span>
+                <span class="font-bold text-4xl md:text-3xl text-[#D65108] logo-text-spin">D</span>
+                <span class="font-bold text-4xl md:text-3xl text-[#D65108] logo-text-spin">I</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-10">
+                <a href="#services" class="text-lg text-[#3E517A] font-semibold hover:text-[#D65108] transition-colors">Services</a>
+                <a href="#results" class="text-lg text-[#3E517A] font-semibold hover:text-[#D65108] transition-colors">Case Studies</a>
+                <a href="#about" class="text-lg text-[#3E517A] font-semibold hover:text-[#D65108] transition-colors">About</a>
+                <a href="https://rpdi.us/book-a-call" class="bg-[#D65108] text-white font-bold py-3 px-6 rounded-full hover:bg-[#0A2463] transition-colors text-lg">
+                    Book a Call
+                </a>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-[#0A2463] focus:outline-none z-50 p-2">
+                    <svg id="hamburger-icon" class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="close-icon" class="w-9 h-9 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <div id="container">
-      <div id="sidebar">
 
-        <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p>
-            Mi nombre es Yocxany Chaves Gonzalez y actualmente curso el último año de la carrera de Informática Empresarial 
-            en la Universidad de Costa Rica. A lo largo de mi formación universitaria he adquirido una base sólida en tecnologías de la 
-            información, así como una comprensión integral de los procesos empresariales.
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 flex flex-col items-center justify-center text-center space-y-10">
+        <a href="#services" class="mobile-link block py-4 text-4xl text-[#3E517A] hover:text-[#D65108]">Services</a>
+        <a href="#results" class="mobile-link block py-4 text-4xl text-[#3E517A] hover:text-[#D65108]">Case Studies</a>
+        <a href="#about" class="mobile-link block py-4 text-4xl text-[#3E517A] hover:text-[#D65108]">About</a>
+        <a href="https://rpdi.us/book-a-call" class="mobile-link mt-10 bg-[#D65108] text-white font-bold py-4 px-12 rounded-full text-2xl hover:bg-[#0A2463]">Book a Call</a>
+    </div>
 
-            Poseo conocimientos y experiencia en diversos lenguajes y herramientas, entre ellos: C#, C++, .NET, HTML, CSS, JavaScript, 
-            así como bases de datos y redes. Me considero una persona con gran capacidad de aprendizaje autónomo, proactiva, con habilidades 
-            para el trabajo en equipo y con una fuerte orientación hacia la mejora continua.
+    <main>
 
-            Mi objetivo profesional es seguir desarrollándome en el ámbito tecnológico, contribuyendo activamente en proyectos que representen 
-            desafíos y oportunidades de crecimiento, tanto a nivel técnico como personal.
+        <h1 class="text-7xl md:text-8xl lg:text-9xl font-black leading-tight tracking-tight">
+            <span class="text-[#0A2463]">Your Work is Excellent.</span><br><span class="text-[#D65108]">It's Time Your <br>Business<br><span class="text-[#0A2463]">Looked</span> <span class="text-[#D65108]">That Way.</span>
+        </h1>
 
+        <section id="subTitulo" class="w-full text-[#0A2463] relative overflow-hidden">
+            <div class="container mx-auto flex flex-col items-center justify-center min-h-screen px-6 py-20 hero-container-flex md:flex-row md:justify-between md:items-center">
+                <div class="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start md:pr-8">
+                    <div class="title-frame-container">
+                    </div>
+                    <p id="parrafo" class="text-center mt-6 text-lg md:text-xl max-w-xl mx-auto md:mx-0 text-[#8bb0ff]">
+                        Stop losing bigger contracts to competitors who just look more professional online. We build the digital foundation that makes you the "El Rey" of your industry.
+                    </p>
+                    <div id="boton" class="mt-8"> 
+                        <a href="https://rpdi.us/book-a-call" class="bg-[#D65108] text-white font-bold py-4 px-10 rounded-full hover:bg-[#0A2463] transition-colors text-lg shadow-lg transform hover:scale-105 inline-block">
+                            Book Your Free Strategy Call
+                        </a>
+                    </div>
+                </div>
 
-        </p>
-    </section>
+                <div class="light-ray-left"></div>
 
-    <section id="proyectos">
-        <h2>Proyectos</h2>
-        <ul>
-            <li>Proyecto 1 - Página web de ejemplo</li>
-            <li>Proyecto 2 - App con JavaScript</li>
-        </ul>
-    </section>
+                <div class="w-full md:w-1/2 lg:w-2/5 mt-16 md:mt-0 flex justify-center">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front ">
+                                <img src="https://assets.cdn.filesafe.space/tXviO8Cw0vBPlfsWDOQJ/media/65f0df375ad57bbf7859d668.jpeg" alt="Enmanuel Solano, Founder of RP Digital Innovations" class="rounded-lg shadow-2xl">
+                            </div>
+                            <div class="flip-card-back bg-[#0A2463] text-white flex flex-col items-center justify-center rounded-lg shadow-2xl">
+                                <p class="text-xl font-bold mb-4">Visitá nuestras redes sociales!</p> 
+                                <div class="flex space-x-6"> 
+                                    <a href="https://www.facebook.com/profile.php?id=61557426569149" target="_blank" class="text-white hover:text-[#D65108] transition-colors">
+                                        <i class="fab fa-facebook-f fa-2x"></i> 
+                                    </a>
+                                    <a href="https://www.instagram.com/rpdi_marketing/" target="_blank" class="text-white hover:text-[#D65108] transition-colors">
+                                        <i class="fab fa-instagram fa-2x"></i> 
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/enmanuel-solano-197371209/" target="_blank" class="text-white hover:text-[#D65108] transition-colors">
+                                        <i class="fab fa-linkedin-in fa-2x"></i> 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      </div>
-    </div>    
-    
-    <script src="/js/manchas.js"></script>
-    <script src="/js/letras.js"></script>
+        <!-- SERVICES SECTION -->
+        <section id="services" class="w-full py-16 md:py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0A2463] section-title">The "El Rey" Foundation</h2>
+                    <p class="text-md mt-2 max-w-3xl mx-auto text-[#3E517A]">This isn't just a collection of services. It's a complete system designed to establish you as the leader in your market.</p>
+                </div>
+                <div class="rounded-lg shadow-xl p-6 md:p-12 mt-10 max-w-6xl mx-auto border border-gray-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <div class="flex flex-col">
+                            <div class="bg-gray-50 p-6 md:p-8 rounded-lg border border-gray-200 h-full">
+                                <h3 class="text-2xl font-bold text-[#0A2463] mb-8">What You Get:</h3>
+                                
+                                <div class="carousel-container">
+                                    <ul class="space-y-8 carousel-list" id="what-you-get-list">
+                                        <li class="flex items-start"><div class="flex-shrink-0"><span class="text-3xl">🖥️</span></div><div class="ml-4"><h4 class="font-bold text-lg">A Professional Website</h4><p class="text-sm text-[#3E517A]">A custom-built site that showcases your best work and builds trust with high-value clients.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0"><span class="text-3xl">📇</span></div><div class="ml-4"><h4 class="font-bold text-lg">A Simple CRM System</h4><p class="text-sm text-[#3E517A]">A private system to manage all your customers and leads in one place, so no opportunity is missed.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0"><span class="text-3xl">📍</span></div><div class="ml-4"><h4 class="font-bold text-lg">Google Maps Optimization</h4><p class="text-sm text-[#3E517A]">We get your business listed properly so local customers can find you when they search.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0"><span class="text-3xl">🤝</span></div><div class="ml-4"><h4 class="font-bold text-lg">A 1-on-1 Partnership</h4><p class="text-sm text-[#3E517A]">You get direct access to me, Enmanuel. A partner who speaks your language and understands your business.</p></div></li>
+                                        
+                                        <li class="flex items-start"><div class="flex-shrink-0"><span class="text-3xl">🖥️</span></div><div class="ml-4"><h4 class="font-bold text-lg">A Professional Website</h4><p class="text-sm text-[#3E517A]">A custom-built site that showcases your best work and builds trust with high-value clients.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0"><span class="text-3xl">📇</span></div><div class="ml-4"><h4 class="font-bold text-lg">A Simple CRM System</h4><p class="text-sm text-[#3E517A]">A private system to manage all your customers and leads in one place, so no opportunity is missed.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0"><span class="text-3xl">📍</span></div><div class="ml-4"><h4 class="font-bold text-lg">Google Maps Optimization</h4><p class="text-sm text-[#3E517A]">We get your business listed properly so local customers can find you when they search.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0"><span class="text-3xl">🤝</span></div><div class="ml-4"><h4 class="font-bold text-lg">A 1-on-1 Partnership</h4><p class="text-sm text-[#3E517A]">You get direct access to me, Enmanuel. A partner who speaks your language and understands your business.</p></div></li>
+                                        </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col">
+                            <div class="bg-blue-50 p-6 md:p-8 rounded-lg border border-blue-200 h-full">
+                                <h3 class="text-2xl font-bold text-[#0A2463] mb-8">What It Does for You:</h3>
+                                
+                                <div class="carousel-container">
+                                    <ul class="space-y-8 carousel-list" id="what-it-does-list">
+                                        <li class="flex items-start"><div class="flex-shrink-0 text-green-500 text-2xl font-bold mr-3">✓</div><div><h4 class="font-bold text-lg">Win Bigger Contracts</h4><p class="text-sm text-[#3E517A]">A professional brand builds the trust needed to close high-value commercial and residential deals.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0 text-green-500 text-2xl font-bold mr-3">✓</div><div><h4 class="font-bold text-lg">Stop Looking "Small"</h4><p class="text-sm text-[#3E517A]">Your online presence will finally match the quality of your work, making you the obvious choice for serious clients.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0 text-green-500 text-2xl font-bold mr-3">✓</div><div><h4 class="font-bold text-lg">Dominate Your Local Area</h4><p class="text-sm text-[#3E517A]">When customers search for your services nearby, your business will show up as a trusted, top option.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0 text-green-500 text-2xl font-bold mr-3">✓</div><div><h4 class="font-bold text-lg">Get a Real Partner, Not a Sales Rep</h4><p class="text-sm text-[#3E517A]">You get a dedicated partner who is personally invested in your success, not a call center.</p></div></li>
+                                        
+                                        <li class="flex items-start"><div class="flex-shrink-0 text-green-500 text-2xl font-bold mr-3">✓</div><div><h4 class="font-bold text-lg">Win Bigger Contracts</h4><p class="text-sm text-[#3E517A]">A professional brand builds the trust needed to close high-value commercial and residential deals.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0 text-green-500 text-2xl font-bold mr-3">✓</div><div><h4 class="font-bold text-lg">Stop Looking "Small"</h4><p class="text-sm text-[#3E517A]">Your online presence will finally match the quality of your work, making you the obvious choice for serious clients.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0 text-green-500 text-2xl font-bold mr-3">✓</div><div><h4 class="font-bold text-lg">Dominate Your Local Area</h4><p class="text-sm text-[#3E517A]">When customers search for your services nearby, your business will show up as a trusted, top option.</p></div></li>
+                                        <li class="flex items-start"><div class="flex-shrink-0 text-green-500 text-2xl font-bold mr-3">✓</div><div><h4 class="font-bold text-lg">Get a Real Partner, Not a Sales Rep</h4><p class="text-sm text-[#3E517A]">You get a dedicated partner who is personally invested in your success, not a call center.</p></div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- CASE STUDIES SECTION -->
+                <section id="results" class="w-full py-16 md:py-20">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center">
+                            <h2 class="text-3xl md:text-4xl font-bold text-[#0A2463] section-title">Real Results for Businesses Like Yours</h2>
+                            <p class="text-md mt-2 max-w-3xl mx-auto text-[#3E517A]">We help great businesses build the professional presence they deserve. Here's how we've helped others become the "El Rey" of their industry.</p>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12 max-w-6xl mx-auto">
+                            <div class="rounded-lg shadow-xl flex flex-col overflow-hidden border border-gray-100">
+                                <div class="p-8"><div class="flex items-center mb-4"><img src="https://placehold.co/64x64/3E517A/FFFFFF?text=J" class="w-16 h-16 rounded-full mr-4" alt="Javier from Javier's Construction"><div><h3 class="text-2xl font-bold text-[#0A2463]">Javier's Construction</h3><p class="text-md text-[#3E517A]">Commercial Contractor</p></div></div><blockquote class="text-md italic text-gray-600 border-l-4 border-gray-200 pl-4 my-6">"We were losing large commercial bids. Our work was better, but our competitors just looked more legitimate online."</blockquote></div>
+                                <div class="bg-gray-50 p-6 mt-auto border-t border-gray-100"><h4 class="font-bold text-center text-[#0A2463] mb-4">The Transformation</h4><div class="flex justify-around items-center"><div class="text-center"><p class="text-sm text-gray-500 mb-2">BEFORE</p><div class="w-32 h-20 bg-white border-2 border-dashed border-red-400 rounded-md flex items-center justify-center"><span class="text-red-500 text-xs text-center">No<br>Website</span></div></div><span class="text-3xl font-light text-gray-400">→</span><div class="text-center"><p class="text-sm text-gray-500 mb-2">AFTER</p><div class="w-32 h-20 bg-white border-2 border-green-500 rounded-md flex items-center justify-center"><span class="text-green-600 text-xs text-center">Professional<br>Website</span></div></div></div></div>
+                                <div class="p-8"><p class="text-md"><strong>The Result:</strong> "With our new professional website from the 'El Rey Foundation', we landed a multi-unit commercial contract we would have never been considered for before. It paid for the investment 10 times over."</p></div>
+                            </div>
+                            <div class="rounded-lg shadow-xl flex flex-col overflow-hidden border border-gray-100">
+                                <div class="p-8"><div class="flex items-center mb-4"><img src="https://placehold.co/64x64/589A5B/FFFFFF?text=M" class="w-16 h-16 rounded-full mr-4" alt="Maria from Maria's Landscaping"><div><h3 class="text-2xl font-bold text-[#0A2463]">Maria's Landscaping</h3><p class="text-md text-[#3E517A]">Residential Design</p></div></div><blockquote class="text-md italic text-gray-600 border-l-4 border-gray-200 pl-4 my-6">"We felt stuck. We had a Facebook page, but no way to look professional or manage the calls we were getting. We felt small."</blockquote></div>
+                                <div class="bg-gray-50 p-6 mt-auto border-t border-gray-100"><h4 class="font-bold text-center text-[#0A2463] mb-4">The Transformation</h4><div class="flex justify-around items-center"><div class="text-center"><p class="text-sm text-gray-500 mb-2">BEFORE</p><div class="w-32 h-20 bg-white border-2 border-dashed border-red-400 rounded-md flex items-center justify-center"><span class="text-red-500 text-xs text-center">Facebook<br>Page Only</span></div></div><span class="text-3xl font-light text-gray-400">→</span><div class="text-center"><p class="text-sm text-gray-500 mb-2">AFTER</p><div class="w-32 h-20 bg-white border-2 border-green-500 rounded-md flex items-center justify-center"><span class="text-green-600 text-xs text-center">Website +<br>CRM System</span></div></div></div></div>
+                                <div class="p-8"><p class="text-md"><strong>The Result:</strong> "Our new website and Google profile have brought us a steady stream of higher-quality inquiries for full backyard redesigns, not just lawn mowing. We finally feel like a real, professional company."</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="w-full py-16 md:py-20 ">
+            <div class="container mx-auto px-6">
+                <div class=" rounded-lg shadow-xl p-8 md:p-12 max-w-5xl mx-auto border border-gray-100">
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
+                        <div class="md:col-span-2"><img src="https://assets.cdn.filesafe.space/tXviO8Cw0vBPlfsWDOQJ/media/65f0df375ad57bbf7859d668.jpeg" alt="Enmanuel Solano" class="rounded-lg shadow-2xl w-full h-auto object-cover"></div>
+                        <div class="md:col-span-3"><h2 class="text-3xl font-bold text-[#0A2463] mb-4">My Mission: Your Partner in Growth</h2><p class="text-lg text-[#3E517A] mb-4">My name is Enmanuel Solano. I didn't create this offer by guessing. I built it because I am one of you.</p><p class="text-[#3E517A] mb-4">As a Hispanic business owner myself, I understand the pride you take in your work and the frustration of feeling overlooked because you don't have the same digital tools as the big corporations.</p><p class="text-[#3E517A]">"The El Rey Foundation" was born from a simple idea: to give hard-working business owners the professional digital foundation they need to compete and win. I'm not just a service provider; I'm your partner. I speak your language, I understand your challenges, and my only goal is to help you build a brand you're proud of.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="w-full py-16 md:py-20 ">
+            <div class="container mx-auto px-6">
+                <div class="text-center"><h2 class="text-3xl md:text-4xl font-bold text-[#0A2463] section-title">Frequently Asked Questions</h2><p class="text-md mt-2 max-w-3xl mx-auto text-[#3E517A]">Have questions? We have answers. Here are some of the most common things business owners ask.</p></div>
+                <div class="max-w-3xl mx-auto mt-12 space-y-4">
+                    <details class="faq-item bg-gray-50 p-6 rounded-lg group cursor-pointer border border-gray-200" open><summary class="flex items-center justify-between font-bold text-lg text-[#0A2463]">How is this different from other marketing agencies?<span class="faq-arrow text-[#D65108] transform transition-transform duration-300">▼</span></summary><p class="mt-4 text-[#3E517A]">Simple: I'm your partner, not just another vendor. As a Hispanic business owner myself, I understand your specific challenges. You work directly with me, Enmanuel, and I'm personally invested in your success. We don't offer generic packages; we build the digital foundation that's right for your business.</p></details>
+                    <details class="faq-item bg-gray-50 p-6 rounded-lg group cursor-pointer border border-gray-200"><summary class="flex items-center justify-between font-bold text-lg text-[#0A2463]">How long does it take to see results?<span class="faq-arrow text-[#D65108] transform transition-transform duration-300">▼</span></summary><p class="mt-4 text-[#3E517A]">The first result is immediate. Within the first few weeks, you will have a professional, custom-built website that you can be proud of—an asset that immediately makes you look more credible. This is the foundation that allows you to start winning bigger contracts right away.</p></details>
+                    <details class="faq-item bg-gray-50 p-6 rounded-lg group cursor-pointer border border-gray-200"><summary class="flex items-center justify-between font-bold text-lg text-[#0A2463]">Is the setup fee really a one-time thing?<span class="faq-arrow text-[#D65108] transform transition-transform duration-300">▼</span></summary><p class="mt-4 text-[#3E517A]">Yes, absolutely. That is a one-time investment for the complete design and build of your digital foundation: the website, the CRM setup, and the Google Profile optimization. There are no hidden charges. The only other cost is the small monthly retainer for hosting, software, and my ongoing partnership.</p></details>
+                    <details class="faq-item bg-gray-50 p-6 rounded-lg group cursor-pointer border border-gray-200"><summary class="flex items-center justify-between font-bold text-lg text-[#0A2463]">What if I already have a website?<span class="faq-arrow text-[#D65108] transform transition-transform duration-300">▼</span></summary><p class="mt-4 text-[#3E517A]">That's a great starting point. We can do a full audit of your current site. If it's not effectively building trust and converting visitors, we will build you a new one that does. If the foundation is already solid, we can discuss how to best use your investment to build upon what you already have.</p></details>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION -->
+        <section id="contact" class="w-full py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class=" rounded-lg shadow-xl p-8 md:p-12 max-w-4xl mx-auto border border-gray-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="text-center md:text-left"><h2 class="text-3xl md:text-4xl font-bold text-[#0A2463] leading-tight">Ready to Become the "El Rey" of Your Industry?</h2><p class="mt-4 text-lg text-[#3E517A]">Let's build the professional foundation your business deserves. The first step is a simple, no-pressure strategy call to see if we're a good fit.</p><div class="mt-8"><a href="https://rpdi.us/book-a-call" class="bg-[#D65108] text-white font-bold py-4 px-10 rounded-full hover:bg-[#0A2463] transition-colors text-lg shadow-lg transform hover:scale-105 inline-block">Book Your Free Strategy Call</a></div></div>
+                        <div class="flex justify-center"><img src="https://assets.cdn.filesafe.space/tXviO8Cw0vBPlfsWDOQJ/media/65f0df375ad57bbf7859d668.jpeg" alt="Enmanuel Solano" class="w-48 h-48 rounded-full object-cover shadow-lg ring-4 ring-white"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="w-full border-t border-gray-200">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12">
+                <div class="lg:col-span-2"><h2 class="text-3xl font-bold leading-tight text-[#0A2463]">Ready to Become the "El Rey" of Your Industry?</h2><p class="mt-4 text-[#3E517A]">Let's build the professional foundation your business deserves.</p><a href="https://rpdi.us/book-a-call" class="mt-6 bg-[#D65108] text-white font-bold py-3 px-6 rounded-full hover:bg-[#0A2463] transition-colors inline-block">Book Your Free Strategy Call</a></div>
+                <div class="grid grid-cols-2 sm:grid-cols-2 gap-8 lg:col-span-2">
+                    <div><h4 class="font-bold text-lg mb-4 text-[#0A2463]">Navigation</h4><ul class="space-y-3"><li><a href="#services" class="text-[#3E517A] hover:text-[#D65108]">Services</a></li><li><a href="#results" class="text-[#3E517A] hover:text-[#D65108]">Case Studies</a></li><li><a href="#about" class="text-[#3E517A] hover:text-[#D65108]">About</a></li><li><a href="#faq" class="text-[#3E517A] hover:text-[#D65108]">FAQ</a></li></ul></div>
+                    <div><h4 class="font-bold text-lg mb-4 text-[#0A2463]">Follow Us</h4><ul class="space-y-3"><li><a href="https://www.facebook.com/profile.php?id=61557426569149" target="_blank" class="text-[#3E517A] hover:text-[#D65108]">Facebook</a></li><li><a href="https://www.instagram.com/rpdi_marketing/" target="_blank" class="text-[#3E517A] hover:text-[#D65108]">Instagram</a></li><li><a href="https://www.linkedin.com/in/enmanuel-solano-197371209/" target="_blank" class="text-[#3E517A] hover:text-[#D65108]">LinkedIn</a></li></ul></div>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-gray-200">
+                <p class="text-sm text-gray-500">&copy; 2025 RP Digital Innovations. All Rights Reserved.</p>
+                <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+                    <a href="mailto:admin@rpdi.us" class="text-sm text-gray-500 hover:text-[#D65108]">admin@rpdi.us</a>
+                    <a href="#" class="flex items-center space-x-2"><span class="font-black text-2xl text-[#0A2463]">RP</span><span class="font-bold text-2xl text-[#D65108]">DI</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/carrusel.js"></script>
 
 </body>
 </html>
